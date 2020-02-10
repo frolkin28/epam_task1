@@ -8,9 +8,9 @@ statements = db.Table('statements',
 
 class Statement(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	date = db.Column(db.DateTime)
+	title = db.Column(db.String(255))
+	date = db.Column(db.Date)
 	students = db.relationship('Student', secondary=statements, backref=db.backref('statements', lazy='dynamic'))
-	subject = db.Column(db.String(255), nullable=False)
 
 
 class Student(db.Model):
